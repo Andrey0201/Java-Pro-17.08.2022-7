@@ -8,8 +8,8 @@ public class Main {
   private static String[] words = null;
 
   public static void main(String[] args) {
-    findSymbolOccurance(null, 'a');
-    findSymbolOccurance("america", 'b');
+    System.out.println(findSymbolOccurance(null, 'a'));
+    System.out.println(findSymbolOccurance("america", 'a'));
     System.out.println(findWordPosition("Apollo", "pollo"));
     System.out.println(findWordPosition("Apollo", null));
     System.out.println(findWordPosition("Apollo", "Plant"));
@@ -22,19 +22,19 @@ public class Main {
     guessWord();
   }
 
-  public static void findSymbolOccurance(String str, char ch) {
+  public static int findSymbolOccurance(String str, char ch) {
+    int count = 0;
     if (str != null) {
       char[] chars = str.toCharArray();
-      int count = 0;
       for (char a : chars) {
         if (a == ch) {
           count++;
         }
       }
-      System.out.println(count);
     } else {
-      System.out.println("String is null");
+      System.out.print("Input string is null ");
     }
+    return count;
   }
 
   public static int findWordPosition(String source, String target) {
@@ -42,7 +42,7 @@ public class Main {
     if (source != null && target != null) {
       position = source.indexOf(target);
     } else {
-      System.out.print("String is null ");
+      System.out.print("Input string is null ");
     }
     return position;
   }
@@ -52,7 +52,7 @@ public class Main {
     if (str != null) {
       srtRevers = new StringBuilder(str).reverse().toString();
     } else {
-      System.out.print("String is ");
+      System.out.print("Input string is null ");
     }
     return srtRevers;
   }
@@ -62,7 +62,7 @@ public class Main {
     if (str != null) {
       isPalidrome = new StringBuilder(str).reverse().toString().equals(str);
     } else {
-      System.out.print("String is ");
+      System.out.print("Input string is null ");
     }
     return isPalidrome;
   }
